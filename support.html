@@ -33,21 +33,61 @@
         <p>📧 Email: <b>trinhtrung.tdt@gmail.com</b> </p>
         <p>☎ Phone: 0868 214 215</p>
         <h2>Gửi yêu cầu hỗ trợ nhanh</h2>
-        <form style="margin-top:20px;" onsubmit="alert('Cảm ơn bạn đã gửi phản hồi! Chúng tôi sẽ liên hệ lại trong vòng 24h.'); return false;">
-            <div class="form-group">
-                <label>Họ và tên của bạn:</label>
-                <input type="text" required placeholder="Nguyễn Văn A">
-            </div>
-            <div class="form-group">
-                <label>Email liên hệ:</label>
-                <input type="email" required placeholder="name@example.com">
-            </div>
-            <div class="form-group">
-                <label>Vấn đề bạn gặp phải:</label>
-                <textarea rows="5" required placeholder="Mô tả chi tiết lỗi hoặc góp ý của bạn..."></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Gửi Phản Hồi</button>
-        </form>
+<form style="margin-top:20px;" id="supportForm">
+    <div class="form-group">
+        <label>Họ và tên của bạn:</label>
+        <input type="text" id="senderName" required placeholder="Nguyễn Văn A">
+    </div>
+    <div class="form-group">
+        <label>Email liên hệ:</label>
+        <input type="email" id="senderEmail" required placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+        <label>Vấn đề bạn gặp phải:</label>
+        <textarea rows="5" id="senderMessage" required placeholder="Mô tả chi tiết lỗi hoặc góp ý của bạn..."></textarea>
+    </div>
+    <button type="submit" class="btn-submit" id="submitBtn">Gửi Phản Hồi</button>
+</form>
+
+<script>
+document.getElementById('supportForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Ngăn trang web bị tải lại
+    
+    // ĐƯỜNG LINK URL ỨNG DỤNG WEB BẠN COPY Ở BƯỚC 2 (Thay link của bạn vào đây)
+    const scriptURL = 'DÁN_LINK_GOOGLE_APPS_SCRIPT_CỦA_BẠN_VÀO_ĐÂY';
+    
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.innerText = 'Đang gửi...';
+    submitBtn.disabled = true;
+
+    const data = {
+        name: document.getElementById('senderName').value,
+        email: document.getElementById('senderEmail').value,
+        message: document.getElementById('senderMessage').value
+    };
+
+    fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors', // Cần thiết để bypass lỗi CORS khi dùng với Google Script tĩnh
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(() => {
+        alert('Cảm ơn bạn đã gửi phản hồi! Chúng tôi đã ghi nhận và sẽ liên hệ lại trong vòng 24h.');
+        document.getElementById('supportForm').reset(); // Xóa sạch dữ liệu trên form sau khi gửi thành công
+        submitBtn.innerText = 'Gửi Phản Hồi';
+        submitBtn.disabled = false;
+    })
+    .catch(error => {
+        alert('Có lỗi xảy ra trong quá trình gửi. Vui lòng thử lại sau hoặc liên hệ qua Email trực tiếp.');
+        console.error('Error!', error.message);
+        submitBtn.innerText = 'Gửi Phản Hồi';
+        submitBtn.disabled = false;
+    });
+});
+</script>
     </div>
 </body>
 </html>
