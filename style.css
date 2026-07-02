@@ -214,17 +214,41 @@ footer a:hover {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column; /* Đổi xếp hàng ngang thành hàng dọc trên mobile */
-        gap: 10px;
+    /* Cấu hình lại khu vực Hero trên Mobile */
+    .hero {
+        flex-direction: column; /* Xếp chữ ở trên, ảnh ở dưới */
+        text-align: center;     /* Căn giữa toàn bộ chữ */
+        padding: 40px 20px;
+        gap: 20px;
+    }
+
+    /* Đảm bảo khối text chiếm hết chiều ngang và căn giữa các phần tử con */
+    .hero-text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;    /* Căn giữa nút bấm và các thẻ bên trong */
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 28px;        /* Thu nhỏ chữ tiêu đề một chút trên mobile cho đỡ thô */
+        margin-bottom: 15px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    /* Cấu hình lại khu vực chứa ảnh Banner trên Mobile */
+    .hero-image {
+        width: 100%;
         text-align: center;
     }
     
-    .nav-links {
-        display: flex; /* Hiện lại menu */
-        justify-content: center;
-        width: 100%;
-        padding-top: 10px;
-        border-top: 1px solid #eee; /* Tạo một đường gạch ngang mỏng ngăn cách */
+    .hero-image img {
+        max-width: 80%;         /* Giới hạn ảnh không bị quá to trên màn hình dọc */
+        height: auto;
     }
 }
