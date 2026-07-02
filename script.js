@@ -4,7 +4,7 @@ document.getElementById('downloadBtn').addEventListener('click', function(e) {
 
     // Nếu là iPhone / iPad
     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        window.location.href = "https://apps.apple.com/vn/app/id-cua-app-ban"; 
+        window.location.href = "https://play.google.com/store/apps/details?id=com.trinhtrung.qlct&pcampaignid=web_share"; 
         e.preventDefault();
     }
     // Nếu là điện thoại Android
