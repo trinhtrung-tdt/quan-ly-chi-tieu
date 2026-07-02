@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hỗ trợ khách hàng - Fin</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS riêng cho form liên hệ */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold;}
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .btn-submit { background-color: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="Fin"><span>Fin</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="guide.html">Hướng dẫn</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Trung Tâm Hỗ Trợ Ứng Dụng Fin</h1>
+        <p>Nếu bạn gặp lỗi trong quá trình sử dụng, mất dữ liệu, hoặc muốn đóng góp ý kiến nâng cấp tính năng, vui lòng liên hệ với chúng tôi qua thông tin bên dưới:</p>
+        
+        <h2>Thông tin liên hệ trực tiếp</h2>
+        <p>📧 Email: <b>support@finapp.example.com</b> (Thay bằng email của bạn)</p>
+        <p>🌐 Fanpage: fb.com/fin.quanlychitieu</p>
+
+        <h2>Gửi yêu cầu hỗ trợ nhanh</h2>
+        <form style="margin-top:20px;" onsubmit="alert('Cảm ơn bạn đã gửi phản hồi! Chúng tôi sẽ liên hệ lại trong vòng 24h.'); return false;">
+            <div class="form-group">
+                <label>Họ và tên của bạn:</label>
+                <input type="text" required placeholder="Nguyễn Văn A">
+            </div>
+            <div class="form-group">
+                <label>Email liên hệ:</label>
+                <input type="email" required placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label>Vấn đề bạn gặp phải:</label>
+                <textarea rows="5" required placeholder="Mô tả chi tiết lỗi hoặc góp ý của bạn..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Gửi Phản Hồi</button>
+        </form>
+    </div>
+</body>
+</html>
